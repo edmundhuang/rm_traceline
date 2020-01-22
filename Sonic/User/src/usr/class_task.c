@@ -36,7 +36,7 @@ void class_test_task(void const *argu) {
 		// enable_motor(1);
 		// move_x(300);
 	  wait_for_ball();
-	  straight_back();
+//	  straight_back();
 
 		// move_x(300);
 		// task_delay(2000);
