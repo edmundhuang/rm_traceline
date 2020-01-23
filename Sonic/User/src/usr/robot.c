@@ -40,8 +40,6 @@ void straight_back() {
 		if (is_finish == 1)
 			break;
 
-		move_back();
-
 		task_delay(default_delay);
 		sonic_mesg_request(sonic_left_id);
 		task_delay(default_delay);
@@ -51,8 +49,20 @@ void straight_back() {
 	set_buzzer(500, 200, 500, step);
 }
 
-void move_back(int16_t seconds)
-{
+void straight_forward() {
+	step = 4;
+	is_finish = 0;
+	while (1) {
+		if (is_finish == 1)
+			break;
+
+		task_delay(default_delay);
+	}
+
+	set_buzzer(1200, 100, 200,step);
+}
+
+void move_back(int16_t seconds) {
 
 }
 
@@ -82,7 +92,7 @@ int16_t left_wall_distance = 50;
 
 void step2(uint8_t send_id, int16_t distance) {
 	if (left_right == 0) {
-		if (distance < left_wall_distance && distance>10) {
+		if (distance < left_wall_distance && distance > 10) {
 			if (send_id == sonic_left_id) {
 				left_right = 1;
 //				set_buzzer(1200,200,200,2);
@@ -95,13 +105,12 @@ void step2(uint8_t send_id, int16_t distance) {
 		}
 	}
 
-
-
 //	task_delay(1000);
 
 }
 
-void infra_task(uint8_t enable) {
-//	set_buzzer(50, 500);
-//	reverse=enable;
-}
+//void infra_task(uint8_t infra_state[]) {
+////	set_buzzer(50, 500);
+////	reverse=enable;
+//	set_buzzer(500, 10, 0, 1);
+//}

@@ -35,8 +35,13 @@ void class_test_task(void const *argu) {
 	while (1) {
 		// enable_motor(1);
 		// move_x(300);
-	  wait_for_ball();
+	//   wait_for_ball();
 //	  straight_back();
+		// horizontal_move();
+		straight_forward();
+
+
+
 
 		// move_x(300);
 		// task_delay(2000);

@@ -39,15 +39,26 @@ void infrared_mesg_handler(uint8_t send_id, infrared_sensor_t *data) {
 	case 1:
 		memcpy(infrared_val, data, sizeof(infrared_sensor_t));
 
-		if (!infrared_val[0].in1 || !infrared_val[0].in2 || !infrared_val[0].in3
-				|| !infrared_val[0].in4) //当其中任意一个红外对管检测到前方有物体时，执行以下语句
-				{
-			infra_task(1);
+		int8_t infra_state[4];
 
-		} else //当没有一个红外对管检测到前方有物体时，执行以下语句
-		{
-			infra_task(0);
-		}
+		infra_state[0]=infrared_val[0].in1;
+		infra_state[1]=infrared_val[0].in2;
+		infra_state[2]=infrared_val[0].in3;
+		infra_state[3]=infrared_val[0].in4;
+
+
+		sonic_mesg_request(3);
+//		infra_task(infra_state);
+
+//		if (!infrared_val[0].in1 || !infrared_val[0].in2 || !infrared_val[0].in3
+//				|| !infrared_val[0].in4) //当其中任意一个红外对管检测到前方有物体时，执行以下语句
+//				{
+//			infra_task(1);
+//
+//		} else //当没有一个红外对管检测到前方有物体时，执行以下语句
+//		{
+//			infra_task(0);
+//		}
 		break;
 
 	case 2:
