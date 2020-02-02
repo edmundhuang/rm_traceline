@@ -53,4 +53,7 @@ typedef struct
   */
 void chassis_moto_speed_calc(float vx, float vy, float vw, int16_t speed[]);
 
+void motor_run(float vx, float vy, float vw);
+void motor_stop();
+
 #endif

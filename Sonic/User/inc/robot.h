@@ -12,10 +12,13 @@ void sonic_task(uint8_t send_id, int16_t distance);
 
 void wait_for_ball();
 void straight_back();
+void horizontal_move();
 void straight_forward();
 
 void step1(uint8_t send_id, int16_t distance);
 void step2(uint8_t send_id, int16_t distance);
+void step3(uint8_t send_id, int16_t distance);
+void step4(uint8_t send_id, int16_t distance);
 
 //void infra_task(int8_t infra_state[]);
 //void infra_task(uint8_t enable);
